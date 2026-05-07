@@ -12,8 +12,8 @@ function Header() {
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
         <span>🌿</span>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <span style={{ fontWeight: 'bold', fontSize: '16px' }}>CASA BOTÂNICA</span>
-          <span style={{ fontSize: '11px', color: '#888' }}>Plantas & Bem-Estar Natural</span>
+          <span style={{ fontWeight: 'bold', fontSize: '14px' }}>CASA BOTÂNICA</span>
+          <span style={{ fontSize: '11px', color: '#1b1b1b' }}>Plantas & Bem-Estar Natural</span>
         </div>
       </div>
 
@@ -27,7 +27,7 @@ function Header() {
 
       {}
       <button style={{
-        backgroundColor: '#4a6741',
+        backgroundColor: '#56642b',
         color: 'white',
         padding: '10px 20px',
         border: 'none',
