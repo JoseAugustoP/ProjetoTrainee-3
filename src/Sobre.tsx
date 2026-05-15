@@ -5,7 +5,7 @@ import layout from './assets/Grid.png';
 
 function Sobre() {
   return (
-    <section style={{
+    <section id="sobre" style={{
       display: 'flex',
       padding: '80px 48px',
       gap: '80px',

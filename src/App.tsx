@@ -2,6 +2,8 @@ import Header from './Header';
 import Hero from './Hero';
 import Sobre from './Sobre';
 import Kit from './Kits';
+import Contato from './Contato';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -10,6 +12,8 @@ function App() {
       <Hero />
       <Sobre />
       <Kit />
+      <Contato />
+      <Footer />
     </div>
   );
 }
