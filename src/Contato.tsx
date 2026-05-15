@@ -76,7 +76,7 @@ function Contato() {
             <label>
               Email
               <input
-                type="text"
+                type="email"
                 inputMode="email"
                 name="email"
                 placeholder="seuemail@email.com"
