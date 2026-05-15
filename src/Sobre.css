@@ -1,0 +1,127 @@
+.about-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.95fr);
+  align-items: center;
+  gap: clamp(36px, 6vw, 88px);
+  width: 100%;
+  padding: clamp(64px, 8vw, 112px) clamp(20px, 5vw, 96px);
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.about-section__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-section__eyebrow {
+  color: #23281f;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.about-section__title {
+  max-width: 720px;
+  margin: 0;
+  color: #171a14;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(36px, 4.2vw, 58px);
+  line-height: 1.15;
+}
+
+.about-section__copy {
+  display: grid;
+  gap: 16px;
+  max-width: 740px;
+}
+
+.about-section__copy p {
+  margin: 0;
+  color: #23281f;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.about-section__copy strong {
+  color: #7f9f31;
+  font-weight: 800;
+}
+
+.about-section__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.about-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 190px;
+  padding: 26px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background: #e8f5b0;
+  box-shadow: 0 3px 12px rgba(31, 45, 25, 0.1);
+}
+
+.about-card__icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background: #56642b;
+}
+
+.about-card__icon img {
+  display: block;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+
+.about-card p {
+  margin: 0;
+  color: #30352b;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.about-section__media {
+  width: 100%;
+}
+
+.about-section__media img {
+  display: block;
+  width: 100%;
+  max-height: 760px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+@media (max-width: 1120px) {
+  .about-section {
+    grid-template-columns: 1fr;
+  }
+
+  .about-section__media {
+    order: -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .about-section__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card {
+    min-height: auto;
+  }
+}
