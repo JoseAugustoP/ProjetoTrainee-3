@@ -9,6 +9,8 @@ function Hero() {
       justifyContent: 'space-between',
       padding: '80px 48px',
       minHeight: '80vh',
+      width: '100%',
+      boxSizing: 'border-box'
     }}>
 
       {/* Lado esquerdo */}
@@ -63,20 +65,19 @@ function Hero() {
       {/* Lado direito - imagens empilhadas */}
       <div style={{
         position: 'relative',
-        width: '600px',
-        height: '600px',
+        width: '700px',
+        height: '700px',
         flexShrink: 0,
-        marginRight: '80px',
+        marginRight: '150px',
       }}>
         {/* Fundo com planta */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: `radial-gradient(circle at center , #d4f0a0 0%, transparent 70%), url(${plantaImg}) center/contain no-repeat`,
+          background: `radial-gradient(circle at center, #d4f0a0 0%, transparent 70%), url(${plantaImg}) center/contain no-repeat`,
         }}>
         </div>
 
-        {/* Vaso por cima */}
         <img
           src={vasoImg}
           alt="Vaso"
@@ -85,8 +86,9 @@ function Hero() {
             bottom: '0',
             left: '50%',
             transform: 'translateX(-50%)',
-            width: '100%',
+            width: '110%',
             objectFit: 'contain',
+            marginRight: '80px',
           }}
         />
       </div>
