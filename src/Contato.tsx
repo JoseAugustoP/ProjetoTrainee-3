@@ -3,11 +3,18 @@ import mapImage from './assets/map.png';
 import plantaContato from './assets/planta-contato.png';
 import './Contato.css';
 
+const contactEmail = 'contato@casabotanica.com.br';
+
 function Contato() {
   const [isSending, setIsSending] = useState(false);
   const [statusMessage, setStatusMessage] = useState('');
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function getFormValue(formData: FormData, field: string) {
+    const value = formData.get(field);
+    return typeof value === 'string' ? value.trim() : '';
+  }
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (isSending) {
@@ -15,34 +22,28 @@ function Contato() {
     }
 
     const formData = new FormData(event.currentTarget);
+    const nome = getFormValue(formData, 'nome');
+    const email = getFormValue(formData, 'email');
+    const comentario = getFormValue(formData, 'comentario');
 
     setIsSending(true);
     setStatusMessage('');
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nome: formData.get('nome'),
-          email: formData.get('email'),
-          comentario: formData.get('comentario'),
-        }),
-      });
+    const subject = encodeURIComponent(`Contato pelo site - ${nome}`);
+    const body = encodeURIComponent(
+      [
+        `Nome: ${nome}`,
+        `Email: ${email}`,
+        '',
+        'Mensagem:',
+        comentario,
+      ].join('\n'),
+    );
 
-      if (!response.ok) {
-        throw new Error('Nao foi possivel enviar a mensagem.');
-      }
-
-      event.currentTarget.reset();
-      setStatusMessage('Mensagem enviada com sucesso.');
-    } catch {
-      setStatusMessage('Nao foi possivel enviar agora. Tente novamente.');
-    } finally {
-      setIsSending(false);
-    }
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+    event.currentTarget.reset();
+    setStatusMessage('Seu aplicativo de email foi aberto para enviar a mensagem.');
+    setIsSending(false);
   }
 
   return (
